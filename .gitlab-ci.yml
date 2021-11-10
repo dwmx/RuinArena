@@ -1,0 +1,43 @@
+# Gitlab Continuous Integration for Unreal Engine 4
+variables:
+  GIT_STRATEGY: none
+  GIT_CHECKOUT: "false"
+  ErrorActionPreference: STOP
+
+  # Unreal Engine 4 Project Settings
+  PROJECT_NAME: "RuneArena"
+  ENGINE_VERSION: "UE_4.26"
+  BUILD_CONFIGURATION: "Development"
+  ARCHIVE_NAME: "$PROJECT_NAME-$BUILD_CONFIGURATION-rev$CI_COMMIT_SHORT_SHA-x64"
+
+stages:
+  - buildproject
+  - package
+
+buildproject:
+  stage: buildproject
+  variables:
+    GIT_STRATEGY: fetch
+    GIT_CHECKOUT: "true"
+  script:
+    - C:\Users\jsava\gitlab-runner\scripts\build_ue4_project.ps1
+  tags:
+    - windows
+    - ue4
+    - shell
+
+package:
+  stage: package
+  only:
+    - web         # only upload the artifact when the build has been started through the interface
+    - schedules   # only upload the artifact when the build has been started through a schedule
+  script:
+    - echo "Uploading the artifacts to Gitlab..."
+  artifacts:
+    paths:
+      - Build/$ARCHIVE_NAME.zip
+    expire_in: 1 week
+  tags:
+    - windows
+    - ue4
+    - shell

@@ -1,0 +1,26 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{F1DD8704-4583-8CD5-AB61-BB9BD46F6AB2}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "RuneArena",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"CoreUObject",
+				"GameplayTasks",
+				"GameplayAbilities",
+				"UMG"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		}
+	]
+}
