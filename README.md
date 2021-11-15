@@ -4,6 +4,10 @@ An independent, community-driven game project which focuses on bringing the mult
 
 This project's main development repository is hosted on GitLab. All content, source files, and UASSET files have been stripped out here. This repository is meant only for sharing information about the project's current state.
 
+# Gameplay Footage
+Constable Death Match gameplay: https://youtu.be/sIVaJkWkheg
+Arena Match gameplay: https://youtu.be/RYT8Bu2L5Ws
+
 # Map Screenshots
 The following are screen shots of work-in-progress maps for RuinArena. Full resolution screenshots may be accessed via the ScreenShots folder within this repository.
 
